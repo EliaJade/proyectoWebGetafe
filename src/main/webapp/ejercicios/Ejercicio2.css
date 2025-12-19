@@ -1,5 +1,6 @@
 @charset "UTF-8";
 p{
+	
 	color: black;
 	text-align: center;
 	font-family: arial;
@@ -13,4 +14,8 @@ h1{
 	text-align: left;
 	margin: 20px;
 	font-size: 120%;
+}
+hr{
+	width: 90%;
+	text-align: center
 }
