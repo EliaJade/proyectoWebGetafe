@@ -5,6 +5,28 @@
 <title>Calculadora Corregido</title>
 </head>
 <body>
-<a href="http://localhost:8084/ProyectoWebElia/CalculadoraCorregido"></a>
+<!-- <a href="http://localhost:8084/ProyectoWebElia/calculadoraCorregido?operacion=suma&num1=7&num2=9">Suma</a> -->
+<!-- <a href="http://localhost:8084/ProyectoWebElia/calculadoraCorregido?operacion=resta&num1=7&num2=9">Resta</a> -->
+<!-- <a href="http://localhost:8084/ProyectoWebElia/calculadoraCorregido?operacion=multiplicacion&num1=7&num2=9">Multiplicacion</a> -->
+<form action = "http://localhost:8084/ProyectoWebElia/calculadoraCorregido" method = "post">
+	<h1>Calculadora</h1>
+	<fieldset>
+	<legend>Escribe dos numeros:</legend>
+		<p>
+		Numero: <input id="Numero1" name ="num1" type="text"><br><br>
+		Numero: <input id="Numero2" name ="num2" type="text">
+	</fieldset>
+	
+	<fieldset>
+	<select name="operacion">
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multiplicacion">Multiplicación</option>
+    </select><br><br>
+  		<div class="button-container">
+			<input type="submit" value="calcula">
+		</div>
+	</fieldset>
+</form>
 </body>
 </html>
