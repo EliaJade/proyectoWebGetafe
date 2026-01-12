@@ -1,4 +1,4 @@
-package es.cursojava.servlets.calculadora;
+package es.cursojava.ejercicios.calculadora.servlets.calculadora;
 
 import java.io.IOException;
 import java.util.Random;

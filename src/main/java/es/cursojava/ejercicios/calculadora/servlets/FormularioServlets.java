@@ -1,4 +1,4 @@
-package es.cursojava.servlets;
+package es.cursojava.ejercicios.calculadora.servlets;
 
 import java.io.IOException;
 

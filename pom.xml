@@ -14,6 +14,12 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- Mi propio proyecto -->
+    <dependency>
+      <groupId>es.cursojava</groupId>
+  	  <artifactId>ProyectoJava</artifactId>
+ 	  <version>0.0.3-SNAPSHOT</version></dependency>
   </dependencies>
   <build>
     <finalName>ProyectoWeb</finalName>

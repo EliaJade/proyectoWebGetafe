@@ -1,6 +1,6 @@
-package es.cursojava.service;
+package es.cursojava.ejercicios.calculadora.service;
 
-import es.cursojava.dto.calculadora.CalculadoraDTO;
+import es.cursojava.ejercicios.calculadora.dto.CalculadoraDTO;
 
 public class CalculadoraService {
 

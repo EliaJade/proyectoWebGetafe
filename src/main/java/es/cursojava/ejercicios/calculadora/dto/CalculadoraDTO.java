@@ -1,4 +1,5 @@
-package es.cursojava.dto.calculadora;
+package es.cursojava.ejercicios.calculadora.dto;
+
 
 public class CalculadoraDTO {
 	private String operacion;

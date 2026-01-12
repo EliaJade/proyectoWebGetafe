@@ -1,9 +1,9 @@
-package es.cursojava.servlets.calculadora;
+package es.cursojava.ejercicios.calculadora.servlets.calculadora;
 
 import java.io.IOException;
 
-import es.cursojava.dto.calculadora.CalculadoraDTO;
-import es.cursojava.service.CalculadoraService;
+import es.cursojava.ejercicios.calculadora.dto.CalculadoraDTO;
+import es.cursojava.ejercicios.calculadora.service.CalculadoraService;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
