@@ -1,6 +1,8 @@
 package es.cursojava.ejercicios.formularioAlumno.service;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Period;
 
 import es.cursojava.ejercicios.formularioAlumno.dao.AlumnoDAO;
 import es.cursojava.ejercicios.formularioAlumno.dto.AlumnoDTORequest;
@@ -22,6 +24,9 @@ public class AlumnoService {
 		}
 		if(dto.getEmail().isEmpty()) {
 			throw new IllegalArgumentException("El alumno debe tener un correo");
+		}
+		if(dto.getEdad()==null) {
+			throw new IllegalArgumentException("El alumno debe tener la edad");
 		}
 		if(dto.getEdad()<0) {
 			throw new IllegalArgumentException("La edad no puede ser negativa");
@@ -48,9 +53,10 @@ public class AlumnoService {
 		alumno.setNombre(dto.getNombre());
 		alumno.setEmail(dto.getEmail());
 		alumno.setEdad(dto.getEdad());
-		
+		System.out.println("antes");
 		alumnoDAO.save(alumno);
-		
+
+		System.out.println("despues");
 		AlumnoDTOResponse response = new AlumnoDTOResponse();
 		response.setId(alumno.getId());
 		response.setEdad(alumno.getEdad());
@@ -62,6 +68,10 @@ public class AlumnoService {
 		
 	}
 
+	public Integer calcularEdad(LocalDate fechaNacimiento) {
+		LocalDate now = LocalDate.now();
+		 return Period.between(fechaNacimiento, now).getYears();
+	}
 
 
 	

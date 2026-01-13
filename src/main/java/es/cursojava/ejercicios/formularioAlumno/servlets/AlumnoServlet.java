@@ -19,20 +19,30 @@ public class AlumnoServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		AlumnoDAO dao = new AlumnoDAO();
+		AlumnoService service = new AlumnoService(dao);
 		LocalDate now = LocalDate.now();
 		String nombre = req.getParameter("nombre");
 		String email = req.getParameter("email");
-		Integer edad = Period.between(LocalDate.parse(req.getParameter("fechaNacimiento")), now).getYears();
+		if(req.getParameter("fechaNacimiento").isEmpty()) {
+			throw new IllegalArgumentException("El alumno debe tener la edad");
+		}
+		Integer edad = service.calcularEdad(LocalDate.parse(req.getParameter("fechaNacimiento")));
 		
 		System.out.println("Nombre: "+ nombre);
 		System.out.println("Email: " + email);
 		System.out.println("Edad: " + edad);
-		
-		AlumnoDAO dao = new AlumnoDAO();
-		AlumnoService service = new AlumnoService(dao);
+		;
 
 		AlumnoDTORequest alumnoDTO = new AlumnoDTORequest(nombre, email, edad);
-		service.verificar(alumnoDTO);
+		try {
+
+			service.verificar(alumnoDTO);
+			resp.getWriter().println("Alumno dado de alta correctamente");
+		} catch(IllegalArgumentException e) {
+			resp.getWriter().println("Error al dar de alta el alumno");
+		}
 		
 	}
 

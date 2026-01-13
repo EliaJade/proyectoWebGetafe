@@ -32,7 +32,9 @@ public class AlumnoDAO {
 	
 	public void save(Alumno alumno) {
 		try {
-			session.save(alumno);
+			transaction.begin();
+			session.persist(alumno);
+			session.flush();
 			transaction.commit();
 		}
 		catch (Exception e) {
