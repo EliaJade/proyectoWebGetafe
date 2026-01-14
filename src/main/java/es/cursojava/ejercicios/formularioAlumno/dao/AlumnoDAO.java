@@ -1,6 +1,8 @@
 package es.cursojava.ejercicios.formularioAlumno.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -43,6 +45,20 @@ public class AlumnoDAO {
 	        }
 	        throw e;
 		}
+	}
+	public List<Alumno> getTodosLosAlumnos(){
+		List<Alumno> alumnos = new ArrayList<>();
+		try {
+			Transaction tx = session.beginTransaction();
+			Query<Alumno> query = session.createQuery("from Alumno", Alumno.class);
+			alumnos = query.getResultList();
+			tx.commit();
+		} catch(Exception e){
+			e.getMessage();
+		}
+		
+		return alumnos;
+		
 	}
 //	public Aula obtenerAulaPorNombreAlumno(String nombreAlumno) {
 //		Query<Alumno> query = session.createQuery("from Alumno where nombre = :nombreAlumno", Alumno.class);

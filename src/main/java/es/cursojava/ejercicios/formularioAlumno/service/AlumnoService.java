@@ -3,6 +3,8 @@ package es.cursojava.ejercicios.formularioAlumno.service;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 
 import es.cursojava.ejercicios.formularioAlumno.dao.AlumnoDAO;
 import es.cursojava.ejercicios.formularioAlumno.dto.AlumnoDTORequest;
@@ -72,6 +74,24 @@ public class AlumnoService {
 		LocalDate now = LocalDate.now();
 		 return Period.between(fechaNacimiento, now).getYears();
 	}
+	
+	public List<AlumnoDTOResponse> getTodosLosAlumnosDTO(){
+		List<Alumno> alumnos = alumnoDAO.getTodosLosAlumnos();
+		List<AlumnoDTOResponse> dtos = new ArrayList<>();
+		for (Alumno a : alumnos) {
+			AlumnoDTOResponse dto = new AlumnoDTOResponse();
+			dto.setEdad(a.getEdad());
+			dto.setEmail(a.getEmail());
+			dto.setNombre(a.getNombre());
+			dtos.add(dto);
+			
+			
+			
+		}
+		return dtos;
+		
+	}
+
 
 
 	
