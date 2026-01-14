@@ -19,7 +19,19 @@
     <dependency>
       <groupId>es.cursojava</groupId>
   	  <artifactId>ProyectoJava</artifactId>
- 	  <version>0.0.3-SNAPSHOT</version></dependency>
+ 	  <version>0.0.3-SNAPSHOT</version>
+ 	  </dependency>
+ 	  <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.1.0</version> <!-- Or 3.0.1 depending on your server -->
+    <scope>provided</scope>
+	</dependency>
+	<dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>jstl</artifactId>
+	  <version>1.2</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>ProyectoWeb</finalName>

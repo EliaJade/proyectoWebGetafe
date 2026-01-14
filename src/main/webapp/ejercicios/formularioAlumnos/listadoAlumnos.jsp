@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import = "java.util.List"%>
+    <%@ page import = "es.cursojava.ejercicios.formularioAlumno.dto.AlumnoDTOResponse"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +13,36 @@
     <table border="1" cellpadding="5" cellspacing="0">
         <thead>
             <tr>
-                <th>ID</th><th>Name</th><th>Email</th>
+                <th>Nombre</th><th>Email</th><th>Edad</th>
             </tr>
         </thead>
-        <tbody>
-            <c:forEach var="alumno" items="${alumno}">
+        <tbody id = "tablaAlumno"> 
+        
+            <%
+            List<AlumnoDTOResponse> lista = (List<AlumnoDTOResponse>) request.getAttribute("alumnos");
+            if(lista != null && !lista.isEmpty()){
+            	for (AlumnoDTOResponse alumno : lista){
+            %>
                 <tr>
-                    <td>${student.nombre}</td>
-                    <td>${student.email}</td>
-                    <td>${student.edad}</td>
+                    <td><%= alumno.getNombre() %></td>
+                    <td><%= alumno.getEmail() %></td>
+                    <td><%= alumno.getEdad() %></td>
                 </tr>
-            </c:forEach>
+              <%
+            	} 
+            } else {
+            	
+            
+              %>  <tr>
+              			<td colspan= "5" style="text-align: center; padding: 20px;">
+              			No students found in database
+              			</td>
+              	</tr>
+              	
+              	<%
+              	}
+              	%>
+           
         </tbody>
     </table>
 </body>

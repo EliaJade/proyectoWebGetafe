@@ -46,16 +46,11 @@ public class AlumnoDAO {
 	        throw e;
 		}
 	}
-	public List<Alumno> getTodosLosAlumnos(){
+	public List<Alumno> getTodosLosAlumnos(){ //HQL hibernate query language because it uses names of classes instead of names of tables
 		List<Alumno> alumnos = new ArrayList<>();
-		try {
-			Transaction tx = session.beginTransaction();
-			Query<Alumno> query = session.createQuery("from Alumno", Alumno.class);
-			alumnos = query.getResultList();
-			tx.commit();
-		} catch(Exception e){
-			e.getMessage();
-		}
+		Query<Alumno> query = session.createQuery("from Alumno", Alumno.class);
+		alumnos = query.getResultList();
+		
 		
 		return alumnos;
 		

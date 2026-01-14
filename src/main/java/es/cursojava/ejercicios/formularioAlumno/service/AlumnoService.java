@@ -14,8 +14,9 @@ import es.cursojava.hibernate.ejercicios.ejercicio1.entities.Alumno;
 public class AlumnoService {
 	
 	private AlumnoDAO alumnoDAO;
-	
-	public AlumnoService(AlumnoDAO alumnoDAO) {
+
+
+	public AlumnoService(AlumnoDAO alumnoDAO) { //TODO: change this to alumnoDAO = new AlumnoDAO(); and get rid of AlumnoDAO alumnoDAO in the parameter
 		super();
 		this.alumnoDAO = alumnoDAO;
 	}
@@ -92,7 +93,7 @@ public class AlumnoService {
 		
 	}
 
-
+	
 
 	
 
